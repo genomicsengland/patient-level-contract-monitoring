@@ -24,7 +24,7 @@ Create the following folders
 | ngis_biobank_all.csv      | ngis_biobank_all.sql |
 | ngis_genomicrecord_all.csv     | ngis_genomicrecord_all.sql     |
 | ngis_diseasearea_all.csv | ngis_biobank_all.sql      |
-| ow_9.csv | row_9_specific.sql     |
+| row_9.csv | row_9_specific.sql     |
 | row_11.csv | row_11_specific.sql      |
 
 ### Prep Files - Stage 2
