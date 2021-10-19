@@ -10,12 +10,12 @@ Created on Fri Jan 15 14:45:39 2021
 import pandas as pd
 
 
-date = 'March 2021'
+date = 'Jul 2021'
 
 # Importing the files needed to generate table
-df_biobankall = pd.read_csv(f'/Users/shivambhatnagar/OneDrive - Genomics England Ltd/Genomics England/PLCM/Tables/{date}/ngis_biobank_all.csv')
-df_grecordall = pd.read_csv(f'/Users/shivambhatnagar/OneDrive - Genomics England Ltd/Genomics England/PLCM/Tables/{date}/ngis_genomicrecord_all.csv')
-df_r11tat = pd.read_csv(f'/Users/shivambhatnagar/OneDrive - Genomics England Ltd/Genomics England/PLCM/Tables/{date}/row_11.csv')
+df_biobankall = pd.read_csv(f'/Users/shivambhatnagar/OneDrive - Genomics England Ltd/Genomics England/PLCM Dev/Tables/{date}/ngis_biobank_all.csv')
+df_grecordall = pd.read_csv(f'/Users/shivambhatnagar/OneDrive - Genomics England Ltd/Genomics England/PLCM Dev/Tables/{date}/ngis_genomicrecord_all.csv')
+df_r11tat = pd.read_csv(f'/Users/shivambhatnagar/OneDrive - Genomics England Ltd/Genomics England/PLCM Dev/Tables/{date}/row_11.csv')
 
 df_join_biobank_r11tat = pd.merge(df_biobankall, df_r11tat, how="left", on="SAMPLE_IDENTIFIER")
 
@@ -31,10 +31,11 @@ df_out.drop(columns="NGIS_REFERRAL_IDENTIFIER_y", inplace=True)
 df_out = df_out.sort_values(by=['NGIS_REFERRAL_IDENTIFIER',  'SAMPLE_IDENTIFIER'])
 
 
-
-df_schema = pd.read_excel(r'/Users/shivambhatnagar/OneDrive - Genomics England Ltd/Genomics England/PLCM/Data/NHSE Docs/PLCM Examples v2.0. WGS.xlsx',sheet_name='Example 3' )
+## CHANGE TO LASTEST SPEC
+df_schema = pd.read_excel(r'/Users/shivambhatnagar/OneDrive - Genomics England Ltd/Genomics England/PLCM Dev/Data/NHSE Docs/Specification/Schema_202122.xlsx',sheet_name='Specification')
     
-cols = list(df_schema.columns)
+cols = list(df_schema['Data Element'])
+cols = [x.replace(' ', '_', 10) for x in cols]
 
 plcm_dict = {}
 
@@ -58,7 +59,7 @@ plcm_df.drop_duplicates(inplace=True)
 x = input('Do you want to write to excel file?: y/n')
 
 if x.lower() == 'y':        
-    plcm_df.to_excel(f'/Users/shivambhatnagar/OneDrive - Genomics England Ltd/Genomics England/PLCM/Tables/{date}/output/row11_transportplate.xlsx', index=False)
+    plcm_df.to_excel(f'/Users/shivambhatnagar/OneDrive - Genomics England Ltd/Genomics England/PLCM Dev/Tables/{date}/output/row11_transportplate.xlsx', index=False)
 else:
     pass
     
