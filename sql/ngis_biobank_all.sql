@@ -39,14 +39,5 @@ left join biobank_illumina_gel1008 on biobank_illumina_gel1008.gel1001_id = biob
 left join biobank_illumina_gel1010 on biobank_illumina_gel1010.laboratory_sample_id = biobank_illumina_gel1001.dispatched_sample_lsid
 
 
--- Disease Area Query
---ngis_diseasearea_all
-select dispatched_sample_lsid , disease_area 
-from public.biobank_illumina_gel1001 big 
 
--- SNP Check referring GLH
---ngis_snp_referring_glh
-select distinct referral_id , ordering_entity ->> 'organisation_grouping_location_code' as ods 
-from biobank_illumina_gel1001 big 
-order by referral_id 
 
