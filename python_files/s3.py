@@ -13,8 +13,8 @@ class S3:
         self.logger = logger or aws_logger
         self.s3_client = boto3.resource(
             's3',
-            aws_access_key_id='AKIAZZ6RHY6DOHLPBJTF',
-            aws_secret_access_key='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',
+            aws_access_key_id='x',
+            aws_secret_access_key='x',
         )
 
     def upload_file_to_s3(self, source_file_name: str, destination_s3_bucket: str, destination_s3_path: str):
