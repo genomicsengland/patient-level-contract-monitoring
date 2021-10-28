@@ -70,26 +70,39 @@ class TrifactaClient:
     def upload_dataset(self, file_path: str, name:str) -> int:
         """Upload a dataset to trifacta and store its id."""
         endpoint = 'v4/importedDatasets'
-        data = {
-            "uri": 'sftp://'+file_path,
+        data = json.dumps({
+            "uri": 's3://'+file_path,
             "name": name,
             "detectStructure": True
-        }
-        request = Request('POST', self.host+endpoint, json=data)
+        })
+        request = Request('POST', self.host+endpoint, json=data, headers={'Content-type':'application/json'})
 
-        response = self.call_api(request,)
+        response = self.call_api(request)
         return response['id']
 
     def replace_dataset(self, flow_id: int, old_id: int, new_id: int) -> None:
         """Patch a recipe and change the input dataset."""
         endpoint = f'v4/flows/{flow_id}/replaceDataset'
-        data = {
+        data = json.dumps({
             "importedDatasetId": old_id,
-            "newImportedDatasetId": new_id,
-        }
-        request = Request('PATCH', self.host+endpoint, data=data)
+            "newImportedDatasetId": new_id
+        })
+        print('data',data)
+        
+        
+        request = Request('PATCH', self.host+endpoint, data=data, headers={'Content-type':'application/json'})
         self.call_api(request)
-
+    
+    def get_dataset_id_by_name(self, flow_id: int, dataset_name: str) -> None:
+        """Get a dataset id by checking for like name."""
+        endpoint = f'v4/flows/{flow_id}/inputs'
+        request = Request('GET', self.host+endpoint)
+        response = self.call_api(request).json()
+        for d in response['data']:
+            print(d['id'], d['name'])
+            if dataset_name in d['name']:
+                return d['id']
+        
     
 
 
