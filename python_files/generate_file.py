@@ -6,8 +6,8 @@ from sqlalchemy import create_engine
 plcm_date = os.environ.get("DATE")
 
 # # Create Required Directories
-# prep_plcm = plcm.PLCM(plcm_date)
-# prep_plcm.create_dirs()
+prep_plcm = plcm.PLCM(plcm_date)
+prep_plcm.create_dirs()
 
 
 # Create all non-bio prep files
@@ -18,14 +18,14 @@ a) gms_bio_referral_tracker.csv
 b) Tracker.csv
 """
 
-
+print('Creating gms_tracker_file')
 p0 = plcm.PLCM(plcm_date)
 p0.create_gms_tracker_file()
 
 """
 Iterates through sql folder and executes all the sql queries and writes out to csv files
 """
-
+print('Running SQL Scripts')
 sql_files = os.listdir('sql/')
 
 ngis_biobank_engine = create_engine(
@@ -45,6 +45,7 @@ for sq in sql_files:
 """
 Create Bio Files
 """
+print('Running Bio Files')
 p2 = plcm.PLCM(plcm_date)
 p2.execute_bio_file()
 
