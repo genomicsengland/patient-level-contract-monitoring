@@ -91,11 +91,19 @@ class PLCM:
         df.to_csv(out_path, index=False)
     def create_dirs(self):
         """Create the required folders to store and generate PLCM."""
+        # Create Data Folder
         try:
-            os.makedirs(self.base+'/Data/Bio/'+self.date)
-            os.makedirs(self.base+'/Data/Tables/'+self.date)
+            os.makedirs(self.base + '/Data/')
         except FileExistsError:
-            print('Directories already exist')
+            print('Data Directory Exists, continuing...')
+
+        # Create Bio and Tables Folders
+        folders = ['Bio', 'Tables', 'NHSE Docs']
+        for f in folders:
+            try:
+                os.makedirs(self.base+f'/Data/{f}'+self.date)
+            except FileExistsError:
+                print('{f} folder already exist')
 
 
 
