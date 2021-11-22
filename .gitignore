@@ -2,3 +2,4 @@
 .spyproject
 venv/
 python_files/__pycache__
+.env
