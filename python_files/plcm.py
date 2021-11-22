@@ -101,7 +101,7 @@ class PLCM:
         folders = ['Bio', 'Tables', 'NHSE Docs']
         for f in folders:
             try:
-                os.makedirs(self.base+f'/Data/{f}'+self.date)
+                os.makedirs(self.base+f'/Data/{f}/'+self.date)
             except FileExistsError:
                 print('{f} folder already exist')
 
