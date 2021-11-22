@@ -15,10 +15,11 @@ import os
 def main():
 
     date = os.environ.get("DATE")
-
-    fpath = f'/Users/shivambhatnagar/OneDrive - Genomics England Ltd/Genomics England/Other/PLCM Dev/Data/Bio/{date}/HyperCareAggregate.csv'
-    fpath2 = f'/Users/shivambhatnagar/OneDrive - Genomics England Ltd/Genomics England/Other/PLCM Dev/Data/Tables/{date}/ngis_snp_referring_glh.csv'
-    df_biobankall = pd.read_csv(f'/Users/shivambhatnagar/OneDrive - Genomics England Ltd/Genomics England/Other/PLCM Dev/Data/Tables/{date}/ngis_biobank_all.csv')
+    base = os.environ.get("BASE")
+    fpath = base + '/Data/Bio/' + date + '/HyperCareAggregate.csv'
+    fpath2 = base + '/Data/Tables/' + date + '/ngis_snp_referring_glh.csv'
+    biobank_path = base + '/Data/Tables/' + date + '/ngis_biobank_all.csv'
+    df_biobankall = pd.read_csv(biobank_path)
     df_hypercare = pd.read_csv(fpath)
     df_ods = pd.read_csv(fpath2)
 
@@ -367,10 +368,11 @@ def main():
 
 
     # %% Writing out to dataframes
-    df_r12.to_csv(f'/Users/shivambhatnagar/OneDrive - Genomics England Ltd/Genomics England/Other/PLCM Dev/Data/Tables/{date}/row_12.csv', index=False)
-    df_rsnp.to_csv(f'/Users/shivambhatnagar/OneDrive - Genomics England Ltd/Genomics England/Other/PLCM Dev/Data/Tables/{date}/row_snp.csv', index=False)
-    df_r13.to_csv(f'/Users/shivambhatnagar/OneDrive - Genomics England Ltd/Genomics England/Other/PLCM Dev/Data/Tables/{date}/row_13.csv', index=False)
-    df_r14.to_csv(f'/Users/shivambhatnagar/OneDrive - Genomics England Ltd/Genomics England/Other/PLCM Dev/Data/Tables/{date}/row_14.csv', index=False)
+    out_path = base + '/Data/Tables/' + date + '/'
+    df_r12.to_csv(out_path + 'row_12.csv', index=False)
+    df_rsnp.to_csv(out_path + 'row_snp.csv', index=False)
+    df_r13.to_csv(out_path + 'row_13.csv', index=False)
+    df_r14.to_csv(out_path + 'row_14.csv', index=False)
 
 
 

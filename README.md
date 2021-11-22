@@ -9,7 +9,9 @@ _Update Month = 'Month of Submission', e.g. Sep 2021_
 ### Prep Directories
 Create the following folders
 - PLCM Root Folder : _PLCM_, the absolute path of this folder should be updated as the _BASE_ in the .env file
-In the root folder create the following folders:
+#### In the root folder create the following:
+- Data Parent Folder: _Data_
+#### In the Data folder create the following sub-folders:
 - Bio Folder : _Bio_
 - Tables Folder : _Tables_
 - NHSE Docs Folder : _NHSE Docs_
