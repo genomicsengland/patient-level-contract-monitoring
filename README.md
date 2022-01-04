@@ -26,6 +26,10 @@ Create the following folders
 - Execute `generate_file.py` to create the required prep files
 
 ### Trifacta
-- Manually upload files to Trifacta flows
-- Automation (TO DO)
-
+- Upload the following files to trifacta
+    - 
+    - row_12.csv
+    - row_13.csv
+    - row_14.csv
+    - row_snp.csv
+    - HyperCareAggregate.csv

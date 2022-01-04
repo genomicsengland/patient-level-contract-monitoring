@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 import importlib 
 import pandas as pd
 import sqlalchemy
-import bio
+from python_files import bio
 
 basedir = os.path.abspath(os.path.dirname(__file__))  ## Change to correct file path
 load_dotenv(os.path.join(basedir, "..", ".env"))
@@ -103,7 +103,7 @@ class PLCM:
             try:
                 os.makedirs(self.base+f'/Data/{f}/'+self.date)
             except FileExistsError:
-                print('{f} folder already exist')
+                print(f'{f} folder already exist')
 
 
 
