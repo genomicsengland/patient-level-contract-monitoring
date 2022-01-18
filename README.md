@@ -23,7 +23,7 @@ Create the following folders
 - GMS Sample Tracker.csv should be saved as : _Tracker.csv_
 
 ### Generate
-- Execute `generate_file.py` to create the required prep files
+- Execute `python generate_file.py` to create the required prep files
 
 ### Trifacta
 - Upload the following files to trifacta
