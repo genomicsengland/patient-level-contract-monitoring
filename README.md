@@ -18,9 +18,9 @@ Create the following folders
 
 
 ### Prep Files 
-- Hypercare tracker and GMS Samples Tracker - Download from sharepoint and save in _Bio/Month/_
-- Hypercare tracker should be saved as : __gms_bio_referral_tracker.csv__
-- Referral tracker should be saved as : _Tracker.csv_
+- Download gms_bio_referral_tracker.csv and GMS Sample Tracker.csv - Download from sharepoint and save in _Bio/Month/_
+- gms_bio_referral_tracker.csv should be saved as : __gms_bio_referral_tracker.csv__
+- GMS Sample Tracker.csv should be saved as : _Tracker.csv_
 
 ### Generate
 - Execute `generate_file.py` to create the required prep files
