@@ -1,4 +1,7 @@
 import os 
+import sys
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(SCRIPT_DIR))
 from dotenv import load_dotenv
 import importlib 
 import pandas as pd
@@ -75,7 +78,7 @@ class PLCM:
 
     def db_to_csv(self, sql_path: str, engine: sqlalchemy.engine, path: str) -> None:
         """Reads in a sql file and writes out a file to a given location."""
-        file = open('sql/'+sql_path)
+        file = open(SCRIPT_DIR+'/..'+'/sql/'+sql_path)
         with engine.connect() as conn:
             query = sqlalchemy.text(file.read())
             resultproxy = conn.execute(query)
