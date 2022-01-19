@@ -27,9 +27,10 @@ Create the following folders
 
 ### Trifacta
 - Upload the following files to trifacta
-    - 
-    - row_12.csv
-    - row_13.csv
-    - row_14.csv
-    - row_snp.csv
-    - HyperCareAggregate.csv
+    - 1 - Create Row Data
+      - row_12.csv
+      - row_13.csv
+      - row_14.csv
+      - row_snp.csv
+    - 0 - Reference Files
+      - HyperCareAggregate.csv
