@@ -3,7 +3,6 @@ import os
 import sys
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
-from dotenv import load_dotenv
 from sqlalchemy import create_engine
 
 plcm_date = os.environ.get("DATE")
@@ -31,12 +30,8 @@ Iterates through sql folder and executes all the sql queries and writes out to c
 print('Running SQL Scripts')
 sql_files = os.listdir(SCRIPT_DIR+'/..'+'/sql/')
 
-ngis_biobank_engine = create_engine(
-            'postgresql+psycopg2://ngis_data_quality:QXW45Kiv7BrZgruLREZGzd7dO92s91KQ@10.1.30.104/ngis_biobank_prod'
-        )
-ngis_gr_engine = create_engine(
-            'postgresql+psycopg2://ngis_data_quality:QXW45Kiv7BrZgruLREZGzd7dO92s91KQ@10.1.30.104/ngis_genomicrecord_prod'
-        )
+ngis_biobank_engine = create_engine(os.environ['NGIS_BIOBANK_CONN_STR'])
+ngis_gr_engine = create_engine(os.environ['NGIS_GENOMICRECORD_CONN_STR'])
 
 for sq in sql_files:
     engine = ngis_biobank_engine
