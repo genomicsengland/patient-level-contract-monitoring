@@ -1,0 +1,8 @@
+# Template file for the required .env file
+BASE='absolute path to the base directory as detailed in README.md'
+DATE='Month of Submission e.g. Aug 2022'
+
+The 2 require connection string variables below should follow the following layout
+postgresql+psycopg2://user:password@hostname:port/database_name
+NGIS_BIOBANK_CONN_STR
+NGIS_GENOMICRECORD_CONN_STR
