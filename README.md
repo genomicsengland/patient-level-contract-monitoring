@@ -8,6 +8,9 @@ The PLCM needs to be generated on a monthly basis and submitted via the Arden an
   - Update Month = 'Month of Submission', e.g. Sep 2021
   - Update BASE as detailed in the `Prep Directories` section
   - Make sure the connection strings for biobank and genomic record and up to date and in the required format
+- Export all environment variables from the .env file
+  - mac : `export $(grep -v '^#' .env | xargs)`
+  - linux : `export $(grep -v '^#' .env | xargs -d '\n')`
   
 - Create the required directories as detailed in the `Prep Directories` section
 - Download the required files as detailed in the `Prep Files` section
