@@ -367,7 +367,7 @@ def main():
 
     # %% Writing out to dataframes
     out_path = base + '/Data/Tables/' + date + '/'
-    df_r12.to_csv(out_path + 'row_12_v2.csv', index=False)
+    df_r12.to_csv(out_path + 'row_12.csv', index=False)
     df_rsnp.to_csv(out_path + 'row_snp.csv', index=False)
     df_r13.to_csv(out_path + 'row_13.csv', index=False)
     df_r14.to_csv(out_path + 'row_14.csv', index=False)
